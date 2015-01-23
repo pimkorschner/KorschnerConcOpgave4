@@ -25,18 +25,13 @@ public class Administratiepiet extends UntypedActor {
 		if ( message instanceof Messages) {
 			Messages m = (Messages) message;
 			switch (m) {
-			case NOTIFY :
-					
+			case DONE :
+				//van de sint het bericht gekregen dat hij klaar is met overleg
 				System.out.println(getSender());
+				overlegBezig = false;	
 				
-//				pongCount++;
-//				if (pongCount % 1000 == 0){
-//					System.out.println("Pong:ping"+ pongCount);
-//				}
-//				getSender().tell(Message.PONG, getSelf());
-//				
 				break;
-			case INVITE :
+			case INVITE_WO :
 				System.out.println("Should stop now");
 				getContext().stop(getSelf());
 			}

@@ -37,9 +37,13 @@ public class Werkpiet extends UntypedActor {
 				System.out.println(getName() + " gaat weer aan het werk");
 //				work();
 				break;
-			case INVITE:
-				System.out.println(getName() + " is uitgenodigd door sinterklaas");
-				getSender().tell(Messages.JOIN, getSelf());
+			case INVITE_WO:
+				System.out.println(getName() + " is uitgenodigd door sinterklaas voor een werkoverleg");
+				getSender().tell(Messages.JOIN_WO, getSelf());
+				break;
+			case DONE:
+				System.out.println(getName() + " is klaar met het overleg en gaat weer werken");
+//				work();
 				break;
 			default:
 				break;
