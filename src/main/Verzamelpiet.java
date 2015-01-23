@@ -16,10 +16,11 @@ public class Verzamelpiet extends UntypedActor {
 		this.name = name;
 	}
 
+	/**
+	 * Bij creatie meteen gaan verzamelen
+	 */
 	@Override
 	public void preStart() throws Exception {
-		// TODO Auto-generated method stub
-//		super.preStart();
 		System.out.println(getName() + " is gestart");
 		collect();
 	}
@@ -43,6 +44,9 @@ public class Verzamelpiet extends UntypedActor {
 		}
 	}
 	
+	/**
+	 * Na het verzamelen melden bij de administratiepiet
+	 */
 	public void collect() {
 		try {
 			Thread.sleep((int)Math.random() * 1000);

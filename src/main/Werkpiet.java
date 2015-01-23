@@ -19,10 +19,11 @@ public class Werkpiet extends UntypedActor {
 		this.kleur = kleur;
 	}
 	
+	/**
+	 * Bij creatie meteen gaan werken.
+	 */
 	@Override
 	public void preStart() throws Exception {
-		// TODO Auto-generated method stub
-//		super.preStart();
 		System.out.println(getName() + " is gestart en is: " + kleur);
 		work();
 	}
@@ -55,6 +56,9 @@ public class Werkpiet extends UntypedActor {
 		}
 	}
 	
+	/**
+	 * Na het werken melden bij de administratiepiet 
+	 */
 	public void work() {
 		try {
 			Thread.sleep((int)Math.random() * 10000);

@@ -78,6 +78,11 @@ public class Sinterklaas extends UntypedActor {
 		}
 	}
 	
+	/**
+	 * Als alle pieten aanwezig zijn start het overleg, stuur daarna DONE naar
+	 * de pieten die mee hebben gedaan en DONE naar de administratiepiet
+	 * zodat deze de overlegBezig boolean op false kan zetten.
+	 */
 	public void werkOverleg() {
 		try {
 			System.out.println("Start een werkoverleg");

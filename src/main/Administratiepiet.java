@@ -32,12 +32,7 @@ public class Administratiepiet extends UntypedActor {
 				//van de sint het bericht gekregen dat hij klaar is met overleg
 				System.out.println("Sinterklaas meld zich bij adminPiet dat het overleg klaar is");
 				overlegBezig = false;	
-				
 				break;
-			case INVITE_WO :
-				break;
-//				System.out.println("Should stop now");
-//				getContext().stop(getSelf());
 			}
 		} else if( message instanceof WPNotify) {
 			WPNotify m = (WPNotify) message;
@@ -61,6 +56,10 @@ public class Administratiepiet extends UntypedActor {
 		
 	}
 	
+	/**
+	 * Kijkt eerst of verzameloverleg mogelijk is, dan of er werkoverleg mogelijk is
+	 * en stuurt deze informatie naar de sint
+	 */
 	public void PlanOverleg() {
 		//eerst voor een verzameloverleg kijken maar nu eerst werkpieten integreren.
 		if(verzamelpieten.size() >= 3) {
