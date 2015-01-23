@@ -2,13 +2,13 @@ package data;
 
 import akka.actor.ActorRef;
 
-public class WerkpietKleur {
+public class WerkpietData {
 	
 	private ActorRef wpActor;
 	private int kleur;
 	private String name;
 	
-	public WerkpietKleur(ActorRef actorRef, String name,  int kleur) {
+	public WerkpietData(ActorRef actorRef, String name,  int kleur) {
 		this.wpActor = actorRef;
 		this.name = name;
 		this.kleur = kleur;
@@ -25,6 +25,5 @@ public class WerkpietKleur {
 	public String getName() {
 		return name;
 	}
-	
 	
 }

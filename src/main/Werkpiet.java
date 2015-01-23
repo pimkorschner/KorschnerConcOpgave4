@@ -34,16 +34,20 @@ public class Werkpiet extends UntypedActor {
 			Messages m = (Messages) message;
 			switch (m) {
 			case BUSY:
-				System.out.println(getName() + " gaat weer aan het werk");
-//				work();
+//				System.out.println(getName() + " gaat weer aan het werk");
+				work();
 				break;
 			case INVITE_WO:
 				System.out.println(getName() + " is uitgenodigd door sinterklaas voor een werkoverleg");
 				getSender().tell(Messages.JOIN_WO, getSelf());
 				break;
+			case INVITE_VO:
+				System.out.println(getName() + " is uitgenodigd door sinterklaas voor een verzameloverleg");
+				getSender().tell(Messages.JOIN_VO, getSelf());
+				break;
 			case DONE:
 				System.out.println(getName() + " is klaar met het overleg en gaat weer werken");
-//				work();
+				work();
 				break;
 			default:
 				break;
@@ -54,7 +58,7 @@ public class Werkpiet extends UntypedActor {
 	public void work() {
 		try {
 			Thread.sleep((int)Math.random() * 10000);
-			System.out.println(getName() + " meld zich voor overleg");
+//			System.out.println(getName() + " meld zich voor overleg");
 			adminPiet.tell(new WPNotify(getName(), kleur), getSelf());
 		} catch(InterruptedException e) {}
 	}

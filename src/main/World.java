@@ -23,11 +23,12 @@ public class World {
 		world.actorOf(Props.create(Werkpiet.class, adminPiet, "wp" + 0, ZWART), "wp" + 0);
 		//de rest kan een random kleur krijgen
 		for (int i = 1; i < NR_WP; i++) {
-			world.actorOf(Props.create(Werkpiet.class, adminPiet, "wp" + i, (int)(Math.random()*5)),"wp" + i);
+			world.actorOf(Props.create(Werkpiet.class, adminPiet, "wp" + i, (int)((Math.random()*4)+1
+					)),"wp" + i);
 		}
-//		for (int i = 0; i < NR_VP; i++) {
-//			ActorRef pong = world.actorOf(Props.create(Verzamelpiet.class),"wp" + i);
-//		}
+		for (int i = 0; i < NR_VP; i++) {
+			world.actorOf(Props.create(Verzamelpiet.class, adminPiet, "vp" + i),"vp" + i);
+		}
 	}
 	
 }
